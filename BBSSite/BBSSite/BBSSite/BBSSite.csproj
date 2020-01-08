@@ -189,6 +189,8 @@
     <Compile Include="Models\tb_ZY_Sex.cs">
       <DependentUpon>DB_BBS.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyPublic\GettingUrl.cs.cs" />
+    <Compile Include="MyPublic\IGettingUrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
