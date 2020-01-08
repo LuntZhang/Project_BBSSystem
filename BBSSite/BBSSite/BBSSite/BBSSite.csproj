@@ -189,8 +189,16 @@
     <Compile Include="Models\tb_ZY_Sex.cs">
       <DependentUpon>DB_BBS.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyPublic\CheckUnique.cs" />
+    <Compile Include="MyPublic\DataUnique.cs" />
     <Compile Include="MyPublic\GettingUrl.cs.cs" />
+    <Compile Include="MyPublic\ICheckUnique.cs" />
     <Compile Include="MyPublic\IGettingUrl.cs" />
+    <Compile Include="MyPublic\MyCache.cs" />
+    <Compile Include="MyPublic\MyFormsAuthentication.cs" />
+    <Compile Include="MyPublic\MyFormsPrincipal.cs" />
+    <Compile Include="MyPublic\MyUserDataPrincipal.cs" />
+    <Compile Include="MyPublic\PublicInitiali.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
