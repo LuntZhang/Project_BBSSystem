@@ -12,6 +12,8 @@ namespace BBSSite.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DB_BBSEntities : DbContext
     {
@@ -39,5 +41,45 @@ namespace BBSSite.Models
         public virtual DbSet<tb_ZY_ForumReportType> tb_ZY_ForumReportType { get; set; }
         public virtual DbSet<tb_ZY_ReportType> tb_ZY_ReportType { get; set; }
         public virtual DbSet<tb_ZY_Sex> tb_ZY_Sex { get; set; }
+    
+        public virtual int DBUpdate(string tableName, string setField, string whereField, string andField)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("TableName", tableName) :
+                new ObjectParameter("TableName", typeof(string));
+    
+            var setFieldParameter = setField != null ?
+                new ObjectParameter("SetField", setField) :
+                new ObjectParameter("SetField", typeof(string));
+    
+            var whereFieldParameter = whereField != null ?
+                new ObjectParameter("WhereField", whereField) :
+                new ObjectParameter("WhereField", typeof(string));
+    
+            var andFieldParameter = andField != null ?
+                new ObjectParameter("AndField", andField) :
+                new ObjectParameter("AndField", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DBUpdate", tableNameParameter, setFieldParameter, whereFieldParameter, andFieldParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_RoleJoinColumn_Result> SP_Get_RoleJoinColumn(Nullable<int> roleID)
+        {
+            var roleIDParameter = roleID.HasValue ?
+                new ObjectParameter("RoleID", roleID) :
+                new ObjectParameter("RoleID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_RoleJoinColumn_Result>("SP_Get_RoleJoinColumn", roleIDParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_UsersByCustomer_NotTargetForumArea_Result> SP_Get_UsersByCustomer_NotTargetForumArea()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_UsersByCustomer_NotTargetForumArea_Result>("SP_Get_UsersByCustomer_NotTargetForumArea");
+        }
+    
+        public virtual ObjectResult<SP_Get_UsersByCustomer_NotTargetForumClassify_Result> SP_Get_UsersByCustomer_NotTargetForumClassify()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_UsersByCustomer_NotTargetForumClassify_Result>("SP_Get_UsersByCustomer_NotTargetForumClassify");
+        }
     }
 }

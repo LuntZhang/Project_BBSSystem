@@ -1,0 +1,6 @@
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\bin\Release\Paging.dll
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\bin\Release\Paging.pdb
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\obj\Release\Paging.csprojAssemblyReference.cache
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\obj\Release\Paging.csproj.CoreCompileInputs.cache
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\obj\Release\Paging.dll
+E:\C#\ASP.NET项目开发全程实录（第4版）\源码\01\BBSSiteItem\BBSSite\Paging\obj\Release\Paging.pdb

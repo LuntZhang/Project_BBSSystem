@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Caching;
 
 namespace BBSSite.MyPublic
-{
+{    
     public class MyCache//自定义缓存类
     {
         public static MyCache Current = new MyCache();//定义静态实例对象

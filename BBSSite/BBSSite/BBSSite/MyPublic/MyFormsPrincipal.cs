@@ -18,13 +18,13 @@ namespace BBSSite.MyPublic
             if (userData == null) { throw new ArgumentNullException("userData"); }//验证用户信息
             Identity = new FormsIdentity(ticket);//通过票证信息创建身份验证标识
             UserData = userData;//用户数据
-        }
+        }        
         public bool IsInRole(string Roles)//角色验证
         {
             var userData = UserData as MyUserDataPrincipal;//将用户数据转换成实际类型
             if (userData == null) { throw new NotImplementedException(); }//验证用户信息
             return userData.IsInRole(Roles);//返回调用用户数据类中定义的IsInRole方法，验证逻辑在此方法中实现
-        }
+        }        
         public bool IsInUser(string user)//用户名验证
         {
             var userData = UserData as MyUserDataPrincipal;//将用户数据转换成实际类型//验证用户信息

@@ -344,6 +344,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DBUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TableName" Type="varchar" Mode="In" />
+          <Parameter Name="SetField" Type="varchar(max)" Mode="In" />
+          <Parameter Name="WhereField" Type="varchar(max)" Mode="In" />
+          <Parameter Name="AndField" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_Get_RoleJoinColumn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Get_UsersByCustomer_NotTargetForumArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_UsersByCustomer_NotTargetForumClassify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DB_BBSModelStoreContainer">
           <EntitySet Name="tb_Column" EntityType="Self.tb_Column" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_ForumArea" EntityType="Self.tb_ForumArea" Schema="dbo" store:Type="Tables" />
@@ -878,7 +889,33 @@
             <End Role="tb_ZY_Sex" EntitySet="tb_ZY_Sex" />
             <End Role="tb_UsersByCustomer" EntitySet="tb_UsersByCustomer" />
           </AssociationSet>
+          <FunctionImport Name="DBUpdate">
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="SetField" Mode="In" Type="String" />
+            <Parameter Name="WhereField" Mode="In" Type="String" />
+            <Parameter Name="AndField" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_RoleJoinColumn" ReturnType="Collection(DB_BBSModel.SP_Get_RoleJoinColumn_Result)">
+          <Parameter Name="RoleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_UsersByCustomer_NotTargetForumArea" ReturnType="Collection(DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumArea_Result)" />
+          <FunctionImport Name="SP_Get_UsersByCustomer_NotTargetForumClassify" ReturnType="Collection(DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumClassify_Result)" />
         </EntityContainer>
+        <ComplexType Name="SP_Get_RoleJoinColumn_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ColumnName" Nullable="false" MaxLength="60" />
+          <Property Type="Int32" Name="JoinID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_UsersByCustomer_NotTargetForumArea_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_UsersByCustomer_NotTargetForumClassify_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="10" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1046,6 +1083,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DBUpdate" FunctionName="DB_BBSModel.Store.DBUpdate" />
+          <FunctionImportMapping FunctionImportName="SP_Get_RoleJoinColumn" FunctionName="DB_BBSModel.Store.SP_Get_RoleJoinColumn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BBSModel.SP_Get_RoleJoinColumn_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="JoinID" ColumnName="JoinID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_UsersByCustomer_NotTargetForumArea" FunctionName="DB_BBSModel.Store.SP_Get_UsersByCustomer_NotTargetForumArea">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumArea_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_UsersByCustomer_NotTargetForumClassify" FunctionName="DB_BBSModel.Store.SP_Get_UsersByCustomer_NotTargetForumClassify">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumClassify_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

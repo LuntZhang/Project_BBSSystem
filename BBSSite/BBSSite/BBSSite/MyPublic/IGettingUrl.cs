@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BBSSite.MyPublic
+namespace MyPublic
 {
     /// <summary>
     /// 提供站点资源属性接口
@@ -38,6 +38,6 @@ namespace BBSSite.MyPublic
         /// <summary>
         /// Script目录地址
         /// </summary>
-        string ScriptUrl { get; }
+        string ScriptUrl { get; }  
     }
 }

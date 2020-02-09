@@ -339,6 +339,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="DBUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="varchar" Mode="In" />
+    <Parameter Name="SetField" Type="varchar(max)" Mode="In" />
+    <Parameter Name="WhereField" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AndField" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_RoleJoinColumn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_UsersByCustomer_NotTargetForumArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_UsersByCustomer_NotTargetForumClassify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DB_BBSModelStoreContainer">
     <EntitySet Name="tb_Column" EntityType="Self.tb_Column" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_ForumArea" EntityType="Self.tb_ForumArea" Schema="dbo" store:Type="Tables" />

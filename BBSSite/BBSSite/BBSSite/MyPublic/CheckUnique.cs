@@ -59,7 +59,7 @@ namespace BBSSite.MyPublic
     /// 实现验证数据类,枚举表为tb_UserByRole
     /// </summary>
     public class CheckUniqueByUserByRole : ICheckUnique
-    {
+    {        
         public bool CheckUnique(string value, int MyType, int KeyID)//实现ICheckUnique接口中的CheckUnique方法
         {
             using (DB_BBSEntities db = new DB_BBSEntities())//实例化操作数据库上下文类

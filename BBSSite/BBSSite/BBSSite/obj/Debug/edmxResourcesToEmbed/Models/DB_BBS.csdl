@@ -450,5 +450,31 @@
       <End Role="tb_ZY_Sex" EntitySet="tb_ZY_Sex" />
       <End Role="tb_UsersByCustomer" EntitySet="tb_UsersByCustomer" />
     </AssociationSet>
+    <FunctionImport Name="DBUpdate">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="SetField" Mode="In" Type="String" />
+      <Parameter Name="WhereField" Mode="In" Type="String" />
+      <Parameter Name="AndField" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_RoleJoinColumn" ReturnType="Collection(DB_BBSModel.SP_Get_RoleJoinColumn_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_UsersByCustomer_NotTargetForumArea" ReturnType="Collection(DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumArea_Result)" />
+    <FunctionImport Name="SP_Get_UsersByCustomer_NotTargetForumClassify" ReturnType="Collection(DB_BBSModel.SP_Get_UsersByCustomer_NotTargetForumClassify_Result)" />
   </EntityContainer>
+  <ComplexType Name="SP_Get_RoleJoinColumn_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ColumnName" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="JoinID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_UsersByCustomer_NotTargetForumArea_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="NickName" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_UsersByCustomer_NotTargetForumClassify_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="NickName" Nullable="false" MaxLength="10" />
+  </ComplexType>
 </Schema>

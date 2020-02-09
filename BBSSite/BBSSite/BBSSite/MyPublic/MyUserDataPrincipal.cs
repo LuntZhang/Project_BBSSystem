@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BBSSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -6,7 +7,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 
 namespace BBSSite.MyPublic
-{ 
+{
     //存放数据的用户实体
     public class MyUserDataPrincipal : IPrincipal
     {

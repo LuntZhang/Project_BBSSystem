@@ -86,3 +86,5 @@ D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\obj\Debug\BBSSite.csproj.
 D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\obj\Debug\BBSSite.csproj.CopyComplete
 D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\obj\Debug\BBSSite.dll
 D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\obj\Debug\BBSSite.pdb
+D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\bin\Paging.dll
+D:\WorkSpace\Project_BBSSystem\BBSSite\BBSSite\BBSSite\bin\Paging.pdb
