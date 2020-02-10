@@ -1,12 +1,14 @@
 ﻿using BBSSite.Models;
-using BBSSite.MyPublic;
 using BBSSite.ViewModels;
+using MyPublic;
+using Web.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Web.Paging;
+using BBSSite.MyPublic;
+using System.Linq.Expressions;
 
 namespace BBSSite.Controllers
 {
@@ -151,7 +153,7 @@ namespace BBSSite.Controllers
                             ZY_Sex = S1.tb_UsersByCustomer.tb_ZY_Sex//回复人性别（读取资源表）
                         }).ToList()
                 }).FirstOrDefault();
-            }
+            }            
             cp.GetPaging(ViewBag, Model.ForumSecondCount);//绑定分页数据            
             ViewBag.curid = id;//此id为传入的所属专区ID，将在下次分页时传回
             return View(Model);//返回视图
@@ -162,13 +164,13 @@ namespace BBSSite.Controllers
         /// <param name="CurrentPageindex">分页页码</param>
         /// <returns>根据传入的强类型ForumMainByRecommendEntity实例模型,返回Recommend视图</returns>
         public ActionResult Recommend(int CurrentPageindex = 1)
-        {
+        {            
             PublicFunctions.SetUrls(ViewBag, Url);//构造资源路径(js、css、image等)            
             const int PageSize = 20, PageCount = 5;//定义每页显示数据总数及最多显示的页码
             //构造分页对象配置类
             ConfigPaging cp = new ConfigPaging(CurrentPageindex, PageSize, PageCount);
             //要返回的数据模型
-            ForumMainByRecommendEntity Model = new ForumMainByRecommendEntity();
+            ForumMainByRecommendEntity Model = new ForumMainByRecommendEntity();            
             using (DB_BBSEntities db = new DB_BBSEntities())//构造数据库上下文
             {
                 //查询标记为精华帖的列表内容
@@ -184,7 +186,7 @@ namespace BBSSite.Controllers
                 Model.LastReplyUser = Model.ForumMain.Select(S => S.tb_ForumInfoStatus.Where(W => W.ForumMainID == S.ID).First().tb_UsersByCustomer.UserName).ToList();
                 //统计精华帖总数
                 Model.ForumMainCount = db.tb_ForumMain.Count(C => C.IsRecommend == true && C.Isdelete == false);
-            }
+            }            
             cp.GetPaging(ViewBag, Model.ForumMainCount);//绑定分页数据
             return View(Model);//返回视图
         }
